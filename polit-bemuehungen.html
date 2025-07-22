@@ -1,43 +1,251 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title> А. Приставкин - Политическая деятельность</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>А. Приставкин - Политическая деятельность</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav ul.nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul.nav-links li a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+
+    .event {
+      background-color: #4a90e2;
+      color: white;
+      padding: 16px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      min-width: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .event .year {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .event .label {
+      font-size: 14px;
+      font-weight: normal;
+      opacity: 0.95;
+    }
+
+    .event:hover {
+      background-color: #357ab7;
+      transform: scale(1.05);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 85%;
+      max-width: 650px;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    #close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    #modal-text {
+      white-space: pre-line;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Политическая деятельность</h1>
-        <nav>
-         <ul class="nav-links">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="biografie.html">Биография</a></li>
-                <li><a href="polit-bemuehungen.html">Политическая деятельность</a></li>
-                <li><a href="werke.html">Творчество</a></li>
-                <li><a href="polit-situation.html">Политическая обстановка</a></li>
-                <li><a href="buch.html">Разбор "Тучки"</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>Политическая деятельность</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="biografie.html">Биография</a></li>
+        <li><a href="polit-bemuehungen.html">Политическая деятельность</a></li>
+        <li><a href="werke.html">Творчество</a></li>
+        <li><a href="polit-situation.html">Политическая обстановка</a></li>
+        <li><a href="buch.html">Разбор "Тучки"</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="intro">
-            <h2></h2>
-            <p>
-                
-            </p>
-        </section>
+  <main>
+    <h1>🧭 Политическая активность Анатолия Приставкина</h1>
+    <div class="timeline">
+      <div class="event" data-year="1931">
+        <div class="year">1931</div>
+        <div class="label">Рождение в Люберцах</div>
+      </div>
+      <div class="event" data-year="1940">
+        <div class="year">1940-е</div>
+        <div class="label">Детство в приютах</div>
+      </div>
+      <div class="event" data-year="1965">
+        <div class="year">1965</div>
+        <div class="label">Вступление в КПСС</div>
+      </div>
+      <div class="event" data-year="1980">
+        <div class="year">1980-е</div>
+        <div class="label">Апрельская группа</div>
+      </div>
+      <div class="event" data-year="1990">
+        <div class="year">1990-е</div>
+        <div class="label">Комиссия по помилованиям</div>
+      </div>
+      <div class="event" data-year="2001">
+        <div class="year">2001</div>
+        <div class="label">Роспуск комиссии</div>
+      </div>
+      <div class="event" data-year="2008">
+        <div class="year">2008</div>
+        <div class="label">Смерть писателя</div>
+      </div>
+    </div>
 
-        <section class="translator-note" style="margin-top: 40px; font-size: 0.9rem; color: #555;">
-            <p>
-                
-            </p>
-        </section>
-    </main>
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close">&times;</span>
+        <div id="modal-text"></div>
+      </div>
+    </div>
+  </main>
 
-    <footer>
-        <p>© 2025 Наследие Анатолия Приставкина</p>
-    </footer>
+  <footer>
+    <p>© 2025 Наследие Анатолия Приставкина</p>
+  </footer>
+
+  <script>
+    const data = {
+      "1931": `🍼 Анатолий Приставкин родился 17 октября 1931 года в подмосковных Люберцах.
+Его детство выпало на трагические времена — он рано потерял родителей, пережил голод и стал одним из «беспризорников».
+
+💬 «Я не выдумывал героев — я сам ими был».`,
+
+      "1940": `🚸 В годы войны Приставкин прошёл через несколько сиротских учреждений.
+В 12 лет работал на консервном заводе. Эти впечатления станут основой его главной темы — судьба детей в жестоком государстве.
+
+💬 «Спасибо, товарищ Сталин, за наше счастливое детство»`,
+
+      "1965": `🛠️ В 1965 году Приставкин вступает в Коммунистическую партию.
+Но даже тогда он сохраняет гуманистическую интонацию, не переходя в откровенное подчинение идеологии.
+
+💬 «Даже в системе можно оставаться человеком».`,
+
+      "1980": `✊ Приставкин становится одним из создателей Апрельской группы — объединения писателей-либералов, выступивших против цензуры.
+Это был шаг к литературной и политической свободе.
+
+💬 «Мы писали не для вождей, а для тех, кто плачет по ночам».`,
+
+      "1990": `⚖️ В 1990-х Приставкин возглавляет Комиссию по помилованиям при президенте.
+За годы работы было отменено около 57 000 приговоров.
+
+💬 «Судьба человека — не статистика. Это боль. И совесть».`,
+
+      "2001": `❌ В 2001 году Комиссия по помилованиям была ликвидирована указом Владимира Путина.
+Это стало символом смены политического климата.
+
+💬 «Мы никому не мешали. Просто не подходили к новой вертикали».`,
+
+      "2008": `🕯️ Анатолий Приставкин ушёл из жизни 11 июля 2008 года.
+Он остался в истории как человек, который не предал своего детства.
+
+💬 «Я жил, чтобы объяснить: мы — не герои, мы — дети, которых забыли».`
+    };
+
+    document.querySelectorAll(".event").forEach(eventEl => {
+      eventEl.addEventListener("click", () => {
+        const year = eventEl.dataset.year;
+        const text = data[year];
+        if (text) {
+          document.getElementById("modal-text").textContent = text;
+          document.getElementById("modal").classList.remove("hidden");
+        }
+      });
+    });
+
+    document.getElementById("close").addEventListener("click", () => {
+      document.getElementById("modal").classList.add("hidden");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target.id === "modal") {
+        document.getElementById("modal").classList.add("hidden");
+      }
+    });
+  </script>
 </body>
 </html>
